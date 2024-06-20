@@ -47,16 +47,20 @@ export const Header = ({ navigation, settings }) => {
 						})}
 					</StyledMenuList>
 					<Stack direction='row' spacing={1}>
-						<PrismicNextLink field={navigation.data.primary_header_button_link}>
-							<Button variant='outlined' color='secondary'>
-								{navigation.data.secondary_header_button_text}
-							</Button>
-						</PrismicNextLink>
-						<PrismicNextLink field={navigation.data.primary_header_button_link}>
-							<Button variant='contained' color='primary'>
-								{navigation.data.primary_header_button_text}
-							</Button>
-						</PrismicNextLink>
+						{navigation.data.secondary_header_button_text && (
+							<PrismicNextLink field={navigation.data.secondary_header_button_link}>
+								<Button variant='outlined' color='secondary'>
+									{navigation.data.secondary_header_button_text}
+								</Button>
+							</PrismicNextLink>
+						)}
+						{navigation.data.primary_header_button_text && (
+							<PrismicNextLink field={navigation.data.primary_header_button_link}>
+								<Button variant='contained' color='primary'>
+									{navigation.data.primary_header_button_text}
+								</Button>
+							</PrismicNextLink>
+						)}
 					</Stack>
 				</Toolbar>
 			</Container>
