@@ -1,0 +1,70 @@
+{
+  "id": "navigation",
+  "label": "Navigation",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "links": {
+        "type": "Group",
+        "config": {
+          "label": "Links",
+          "fields": {
+            "label": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Label",
+                "placeholder": "Optional - Label for the link",
+                "allowTargetBlank": false,
+                "single": "heading3"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "Link for navigation item",
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "Buttons": {
+      "primary_header_button_text": {
+        "type": "Text",
+        "config": {
+          "label": "Primary Header Button Text",
+          "placeholder": ""
+        }
+      },
+      "primary_header_button_link": {
+        "type": "Link",
+        "config": {
+          "label": "Primary Header Button Link",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "secondary_header_button_text": {
+        "type": "Text",
+        "config": {
+          "label": "Secondary Header Button Text",
+          "placeholder": ""
+        }
+      },
+      "secondary_header_button_link": {
+        "type": "Link",
+        "config": {
+          "label": "Secondary Header Button Link",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      }
+    }
+  }
+}
