@@ -25,16 +25,16 @@ const theme = createTheme({
 			main: '#b4d33a',
 			light: '#d6df22',
 			dark: '#d6df22',
-			contrastText: '#594b42',
+			contrastText: '#594b42', // brown
 		},
 		secondary: {
-			main: '#594b42',
+			main: '#594b42', // brown
 			light: '#d6df22',
 			dark: '#65a970',
-			contrastText: '#594b42',
+			contrastText: '#594b42', // brown
 		},
 		text: {
-			primary: '#594b42',
+			primary: '#594b42', // brown
 			secondary: '#fff',
 			tertiary: '#65a970',
 		},
@@ -56,7 +56,13 @@ const theme = createTheme({
 					'&:hover': {
 						boxShadow: 'none',
 					},
+					padding: '5px 15px',
 				}),
+			},
+		},
+		MuiIcon: {
+			defaultProps: {
+				baseClassName: 'material-icons',
 			},
 		},
 		// MuiAlert: {

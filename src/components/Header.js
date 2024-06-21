@@ -5,7 +5,7 @@ import { PrismicText } from '@prismicio/react'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 
 import styled from '@emotion/styled'
-import { AppBar, Button, Container, MenuItem, MenuList, Stack, Toolbar } from '@mui/material'
+import { AppBar, Button, Container, Icon, MenuItem, MenuList, Stack, Toolbar } from '@mui/material'
 
 const StyledMenuList = styled(MenuList)(({ theme }) => ({
 	display: 'flex',
@@ -20,12 +20,34 @@ const StyledMenuList = styled(MenuList)(({ theme }) => ({
 	},
 }))
 
+const MobileWrapper = styled('div')(({ theme }) => ({
+	display: 'none',
+	[theme.breakpoints.down('md')]: {
+		display: 'flex',
+	},
+}))
+
+const StyledIconLink = styled(Icon)(({ theme }) => ({
+	color: theme.palette.text.primary,
+	cursor: 'pointer',
+	'&:hover': {
+		color: theme.palette.text.tertiary,
+	},
+}))
+
 export const Header = ({ navigation, settings }) => {
-	console.log('test', settings.data)
 	return (
 		<AppBar position='static' sx={{ backgroundColor: 'transparent' }}>
 			<Container maxWidth='xl'>
-				<Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
+				<Toolbar
+					disableGutters
+					sx={{
+						justifyContent: 'space-between',
+						alignItems: 'center',
+						minHeight: '70px !important',
+					}}
+				>
+					{/* logo */}
 					<PrismicNextLink href='/'>
 						{/* <PrismicText field={settings.data.siteTitle} />
         <>{settings.data.slogan && ` - ${settings.data.slogan}`}</> */}
@@ -35,6 +57,8 @@ export const Header = ({ navigation, settings }) => {
 							height={40}
 						/>
 					</PrismicNextLink>
+
+					{/* navigation links */}
 					<StyledMenuList>
 						{navigation.data?.links.map(item => {
 							return (
@@ -46,6 +70,8 @@ export const Header = ({ navigation, settings }) => {
 							)
 						})}
 					</StyledMenuList>
+
+					{/* navigation buttons */}
 					<Stack direction='row' spacing={1}>
 						{navigation.data.secondary_header_button_text && (
 							<PrismicNextLink field={navigation.data.secondary_header_button_link}>
@@ -62,6 +88,11 @@ export const Header = ({ navigation, settings }) => {
 							</PrismicNextLink>
 						)}
 					</Stack>
+
+					{/* mobile menu */}
+					<MobileWrapper>
+						<StyledIconLink>menu</StyledIconLink>
+					</MobileWrapper>
 				</Toolbar>
 			</Container>
 		</AppBar>

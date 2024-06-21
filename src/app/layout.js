@@ -17,6 +17,9 @@ export default async function RootLayout({ children }) {
 
 	return (
 		<html lang='en'>
+			<head>
+				<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons' />
+			</head>
 			<body>
 				<ThemeProvider theme={theme}>
 					{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
