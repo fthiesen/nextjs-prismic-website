@@ -35,6 +35,12 @@ const StyledIconLink = styled(Icon)(({ theme }) => ({
 	},
 }))
 
+const StyledLogo = styled(PrismicNextImage)(({ theme }) => ({
+	[theme.breakpoints.down('sm')]: {
+		minWidth: 200,
+	},
+}))
+
 export const Header = ({ navigation, settings }) => {
 	return (
 		<AppBar position='static' sx={{ backgroundColor: 'transparent' }}>
@@ -44,6 +50,7 @@ export const Header = ({ navigation, settings }) => {
 					sx={{
 						justifyContent: 'space-between',
 						alignItems: 'center',
+						gap: 1,
 						minHeight: '70px !important',
 					}}
 				>
@@ -51,7 +58,7 @@ export const Header = ({ navigation, settings }) => {
 					<PrismicNextLink href='/'>
 						{/* <PrismicText field={settings.data.siteTitle} />
         <>{settings.data.slogan && ` - ${settings.data.slogan}`}</> */}
-						<PrismicNextImage
+						<StyledLogo
 							field={settings.data.logo_horizontal}
 							alt={settings.data.logo_horizontal.alt}
 							height={40}
@@ -72,7 +79,7 @@ export const Header = ({ navigation, settings }) => {
 					</StyledMenuList>
 
 					{/* navigation buttons */}
-					<Stack direction='row' spacing={1}>
+					<Stack direction='row' spacing={1} sx={{ display: { xs: 'none', sm: 'block' } }}>
 						{navigation.data.secondary_header_button_text && (
 							<PrismicNextLink field={navigation.data.secondary_header_button_link}>
 								<Button variant='outlined' color='secondary'>
