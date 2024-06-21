@@ -19,6 +19,7 @@ export default async function RootLayout({ children }) {
 		<html lang='en'>
 			<head>
 				<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons' />
+				<link rel='icon' href={settings.data.favicon.url} type='image/svg+xml'></link>
 			</head>
 			<body>
 				<ThemeProvider theme={theme}>
