@@ -39,8 +39,13 @@ const theme = createTheme({
 			tertiary: '#65a970',
 		},
 	},
+	body: {
+		htmlFontSize: 10,
+		fontSize: '1.4rem',
+	},
 	typography: {
 		fontFamily: poppins.style.fontFamily,
+		fontSize: '1.6rem',
 	},
 	components: {
 		MuiButton: {
@@ -52,17 +57,32 @@ const theme = createTheme({
 					boxShadow: 'none',
 					borderRadius: 50,
 					letterSpacing: 1,
-					fontSize: '0.8rem',
+					fontSize: '1.2rem',
+					lineHeight: '1.2rem',
+					whiteSpace: 'nowrap',
+					minHeight: 34,
+					padding: '5px 15px',
 					'&:hover': {
 						boxShadow: 'none',
 					},
-					padding: '5px 15px',
 				}),
 			},
 		},
 		MuiIcon: {
 			defaultProps: {
 				baseClassName: 'material-icons',
+			},
+		},
+		MuiList: {
+			styleOverrides: {
+				root: {
+					'& .MuiButtonBase-root': {
+						fontSize: '1.4rem',
+					},
+					'& .MuiListItem-root': {
+						fontSize: '1.4rem',
+					},
+				},
 			},
 		},
 		// MuiAlert: {

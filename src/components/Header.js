@@ -1,13 +1,27 @@
 'use client'
 
+import { useState } from 'react'
 import * as prismic from '@prismicio/client'
 import { PrismicText } from '@prismicio/react'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 
 import styled from '@emotion/styled'
-import { AppBar, Button, Container, Icon, MenuItem, MenuList, Stack, Toolbar } from '@mui/material'
+import {
+	AppBar,
+	Button,
+	Container,
+	Drawer,
+	Icon,
+	List,
+	ListItem,
+	Menu,
+	MenuItem,
+	MenuList,
+	Stack,
+	Toolbar,
+} from '@mui/material'
 
-const StyledMenuList = styled(MenuList)(({ theme }) => ({
+const StyledHorizontalMenuList = styled(MenuList)(({ theme }) => ({
 	display: 'flex',
 	color: theme.palette.text.primary,
 	'& :hover': {
@@ -36,12 +50,48 @@ const StyledIconLink = styled(Icon)(({ theme }) => ({
 }))
 
 const StyledLogo = styled(PrismicNextImage)(({ theme }) => ({
+	minWidth: 180,
 	[theme.breakpoints.down('sm')]: {
-		minWidth: 200,
+		minWidth: 180,
+	},
+}))
+
+const StyledVerticalMenuList = styled(MenuList)(({ theme }) => ({
+	'& .MuiMenuItem-root': {
+		fontSize: '2.6rem',
+		paddingBottom: 0,
+		borderBottom: `1px solid ${theme.palette.text.primary}`,
+		transition: 'transform 0.3s ease-in-out', // Add this line
+		'&:hover': {
+			color: theme.palette.text.tertiary,
+			backgroundColor: 'unset',
+		},
+		'& a': {
+			display: 'inline-block',
+			transition: 'transform 0.3s ease-in-out',
+		},
+		'&:hover a': {
+			transform: 'translateX(10px)',
+		},
+		'&:active a': {
+			transform: 'translateX(0)',
+		},
 	},
 }))
 
 export const Header = ({ navigation, settings }) => {
+	console.log('navigation', navigation)
+	const [anchorEl, setAnchorEl] = useState(null)
+	const open = Boolean(anchorEl)
+
+	const handleOpenMenu = event => {
+		setAnchorEl(event.currentTarget)
+	}
+
+	const handleCloseMenu = () => {
+		setAnchorEl(null)
+	}
+
 	return (
 		<AppBar position='static' sx={{ backgroundColor: 'transparent' }}>
 			<Container maxWidth='xl'>
@@ -56,30 +106,32 @@ export const Header = ({ navigation, settings }) => {
 				>
 					{/* logo */}
 					<PrismicNextLink href='/'>
-						{/* <PrismicText field={settings.data.siteTitle} />
-        <>{settings.data.slogan && ` - ${settings.data.slogan}`}</> */}
 						<StyledLogo
 							field={settings.data.logo_horizontal}
 							alt={settings.data.logo_horizontal.alt}
 							height={40}
 						/>
 					</PrismicNextLink>
+					{/* <PrismicText field={settings.data.siteTitle} />
+					<>{settings.data.slogan && ` - ${settings.data.slogan}`}</> */}
 
 					{/* navigation links */}
-					<StyledMenuList>
-						{navigation.data?.links.map(item => {
-							return (
-								<MenuItem key={prismic.asText(item.label)}>
-									<PrismicNextLink field={item.link}>
-										<PrismicText field={item.label} />
-									</PrismicNextLink>
-								</MenuItem>
-							)
-						})}
-					</StyledMenuList>
+					<StyledHorizontalMenuList>
+						{navigation.data?.links
+							.filter(item => item.label[0].text !== 'Home')
+							.map(item => {
+								return (
+									<MenuItem key={prismic.asText(item.label)}>
+										<PrismicNextLink field={item.link}>
+											<PrismicText field={item.label} />
+										</PrismicNextLink>
+									</MenuItem>
+								)
+							})}
+					</StyledHorizontalMenuList>
 
 					{/* navigation buttons */}
-					<Stack direction='row' spacing={1} sx={{ display: { xs: 'none', sm: 'block' } }}>
+					<Stack direction='row' spacing={1} sx={{ display: { xs: 'none', sm: 'flex' } }}>
 						{navigation.data.secondary_header_button_text && (
 							<PrismicNextLink field={navigation.data.secondary_header_button_link}>
 								<Button variant='outlined' color='secondary'>
@@ -98,7 +150,37 @@ export const Header = ({ navigation, settings }) => {
 
 					{/* mobile menu */}
 					<MobileWrapper>
-						<StyledIconLink>menu</StyledIconLink>
+						<StyledIconLink onClick={handleOpenMenu}>menu</StyledIconLink>
+						<Drawer
+							sx={{
+								minWidth: 360,
+								flexShrink: 0,
+								'& .MuiDrawer-paper': {
+									minWidth: 360,
+									boxSizing: 'border-box',
+								},
+							}}
+							anchor='right'
+							open={open}
+						>
+							<StyledIconLink
+								sx={{ position: 'absolute', top: 10, right: 10, fontSize: '30px !important' }}
+								onClick={handleCloseMenu}
+							>
+								close
+							</StyledIconLink>
+							<StyledVerticalMenuList sx={{ mt: 5 }}>
+								{navigation.data?.links.map(item => {
+									return (
+										<MenuItem key={prismic.asText(item.label)} onClick={handleCloseMenu}>
+											<PrismicNextLink field={item.link}>
+												<PrismicText field={item.label} />
+											</PrismicNextLink>
+										</MenuItem>
+									)
+								})}
+							</StyledVerticalMenuList>
+						</Drawer>
 					</MobileWrapper>
 				</Toolbar>
 			</Container>
