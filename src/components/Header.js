@@ -153,10 +153,10 @@ export const Header = ({ navigation, settings }) => {
 						<StyledIconLink onClick={handleOpenMenu}>menu</StyledIconLink>
 						<Drawer
 							sx={{
-								minWidth: 360,
+								minWidth: { xs: '100vw', sm: 360 },
 								flexShrink: 0,
 								'& .MuiDrawer-paper': {
-									minWidth: 360,
+									minWidth: { xs: '100vw', sm: 360 },
 									boxSizing: 'border-box',
 								},
 							}}
