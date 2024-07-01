@@ -19,6 +19,15 @@ const poppins = Poppins({
 // teal #66c5b1
 
 const theme = createTheme({
+	breakpoints: {
+		values: {
+			// xs: 0,
+			// sm: 600,
+			md: 946,
+			// lg: 1200,
+			// xl: 1536,
+		},
+	},
 	palette: {
 		mode: 'light',
 		primary: {
@@ -39,13 +48,10 @@ const theme = createTheme({
 			tertiary: '#65a970',
 		},
 	},
-	body: {
-		htmlFontSize: 10,
-		fontSize: '1.4rem',
-	},
+
 	typography: {
+		htmlFontSize: 16,
 		fontFamily: poppins.style.fontFamily,
-		fontSize: '1.6rem',
 	},
 	components: {
 		MuiButton: {
