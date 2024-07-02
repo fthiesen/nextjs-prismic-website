@@ -1,13 +1,7 @@
 'use client'
 
-import { Inter, Poppins } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import { createTheme } from '@mui/material/styles'
-
-const inter = Inter({
-	subsets: ['latin'],
-	display: 'swap',
-	variable: '--font-inter',
-})
 
 const poppins = Poppins({
 	weight: ['400', '500'],
@@ -16,9 +10,16 @@ const poppins = Poppins({
 	variable: '--font-poppins',
 })
 
-// teal #66c5b1
-
 const theme = createTheme({
+	breakpoints: {
+		values: {
+			xs: 0,
+			sm: 600,
+			md: 960,
+			lg: 1200,
+			xl: 1536,
+		},
+	},
 	palette: {
 		mode: 'light',
 		primary: {
