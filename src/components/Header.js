@@ -12,6 +12,9 @@ import {
 	Container,
 	Drawer,
 	Icon,
+	List,
+	ListItem,
+	Menu,
 	MenuItem,
 	MenuList,
 	Stack,
@@ -47,9 +50,9 @@ const StyledIconLink = styled(Icon)(({ theme }) => ({
 }))
 
 const StyledLogo = styled(PrismicNextImage)(({ theme }) => ({
-	minWidth: 191,
+	minWidth: 180,
 	[theme.breakpoints.down('sm')]: {
-		minWidth: 191,
+		minWidth: 180,
 	},
 }))
 
@@ -77,6 +80,7 @@ const StyledVerticalMenuList = styled(MenuList)(({ theme }) => ({
 }))
 
 export const Header = ({ navigation, settings }) => {
+	console.log('navigation', navigation)
 	const [anchorEl, setAnchorEl] = useState(null)
 	const open = Boolean(anchorEl)
 

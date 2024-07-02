@@ -2,11 +2,9 @@ import './globals.css'
 
 import { PrismicPreview } from '@prismicio/next'
 import { createClient, repositoryName } from '@/prismicio'
-import { ThemeProvider } from '@mui/material'
-import CssBaseline from '@mui/material/CssBaseline'
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
-
 import theme from '@/theme'
+import CssBaseline from '@mui/material/CssBaseline'
+import { ThemeProvider } from '@mui/material'
 import { Header } from '@/components/Header'
 
 /**
@@ -24,16 +22,14 @@ export default async function RootLayout({ children }) {
 				<link rel='icon' href={settings.data.favicon.url} type='image/svg+xml'></link>
 			</head>
 			<body>
-				<AppRouterCacheProvider>
-					<ThemeProvider theme={theme}>
-						{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-						<CssBaseline />
-						{/* @ts-expect-error Async Server Component */}
-						<Header navigation={navigation} settings={settings} />
-						{children}
-						<PrismicPreview repositoryName={repositoryName} />
-					</ThemeProvider>
-				</AppRouterCacheProvider>
+				<ThemeProvider theme={theme}>
+					{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+					<CssBaseline />
+					{/* @ts-expect-error Async Server Component */}
+					<Header navigation={navigation} settings={settings} />
+					{children}
+					<PrismicPreview repositoryName={repositoryName} />
+				</ThemeProvider>
 			</body>
 		</html>
 	)
