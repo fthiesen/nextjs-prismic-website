@@ -60,11 +60,12 @@ const StyledVerticalMenuList = styled(MenuList)(({ theme }) => ({
 	'& .MuiMenuItem-root': {
 		fontSize: '2.6rem',
 		paddingBottom: 0,
+		paddingTop: 10,
 		borderBottom: `1px solid ${theme.palette.text.primary}`,
 		transition: 'transform 0.3s ease-in-out', // Add this line
 		'&:hover': {
-			color: theme.palette.text.tertiary,
-			backgroundColor: 'unset',
+			color: theme.palette.primary.light,
+			backgroundColor: theme.palette.text.primary,
 		},
 		'& a': {
 			display: 'inline-block',
@@ -158,6 +159,7 @@ export const Header = ({ navigation, settings }) => {
 								'& .MuiDrawer-paper': {
 									minWidth: { xs: '100vw', sm: 360 },
 									boxSizing: 'border-box',
+									backgroundColor: 'primary.light',
 								},
 							}}
 							anchor='right'
@@ -187,4 +189,3 @@ export const Header = ({ navigation, settings }) => {
 		</AppBar>
 	)
 }
-
