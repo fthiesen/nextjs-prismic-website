@@ -1,52 +1,83 @@
-import * as prismic from "@prismicio/client";
-import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
+import * as prismic from '@prismicio/client'
+import { PrismicNextLink, PrismicNextImage } from '@prismicio/next'
 
-import { Bounded } from "@/components/Bounded";
-import { Heading } from "@/components/Heading";
-import { PrismicRichText } from "@/components/PrismicRichText";
+import { PrismicRichText } from '@/components/PrismicRichText'
+import { Box, Button, Container, Stack, Typography } from '@mui/material'
 
-/** @type {import("@prismicio/react").PrismicRichTextProps['components']} */
 const components = {
-  heading1: ({ children }) => (
-    <Heading as="h2" size="xl" className="mb-4 mt-12 first:mt-0 last:mb-0">
-      {children}
-    </Heading>
-  ),
-};
+	paragraph: ({ children }) => <Typography variant='h4'>{children}</Typography>,
+}
 
 const Hero = ({ slice }) => {
-  const backgroundImage = slice.primary.backgroundImage;
+	const backgroundImage = slice.primary.backgroundImage
 
-  return (
-    <section className="relative bg-slate-900 text-white">
-      {prismic.isFilled.image(backgroundImage) && (
-        <PrismicNextImage
-          field={backgroundImage}
-          alt=""
-          fill={true}
-          className="pointer-events-none select-none object-cover opacity-40"
-        />
-      )}
-      <Bounded yPadding="lg" className="relative">
-        <div className="grid justify-items-center gap-8">
-          <div className="max-w-2xl text-center">
-            <PrismicRichText
-              field={slice.primary.text}
-              components={components}
-            />
-          </div>
-          {prismic.isFilled.link(slice.primary.buttonLink) && (
-            <PrismicNextLink
-              field={slice.primary.buttonLink}
-              className="rounded bg-white px-5 py-3 font-medium text-slate-800"
-            >
-              {slice.primary.buttonText || "Learn More"}
-            </PrismicNextLink>
-          )}
-        </div>
-      </Bounded>
-    </section>
-  );
-};
+	return (
+		<section>
+			<Container maxWidth={false} sx={{ pt: 20, pb: 12, position: 'relative' }}>
+				{prismic.isFilled.image(backgroundImage) && (
+					<>
+						<PrismicNextImage
+							field={backgroundImage}
+							alt=''
+							fill={true}
+							style={{
+								objectFit: 'cover',
+								opacity: 0.4,
+								pointerEvents: 'none',
+								userSelect: 'none',
+								zIndex: -1,
+							}}
+						/>
+						<Box
+							sx={{
+								backgroundColor: 'black',
+								position: 'absolute',
+								top: 0,
+								left: 0,
+								right: 0,
+								bottom: 0,
+								zIndex: -2,
+							}}
+						></Box>
+					</>
+				)}
+				<Container
+					maxWidth='md'
+					sx={{
+						color: 'text.secondary',
+						lineHeight: '1.5em',
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
+						gap: 3,
+						mb: 5,
+					}}
+				>
+					<Typography variant='h2'>{slice.primary.title}</Typography>
 
-export default Hero;
+					<PrismicRichText field={slice.primary.summary} components={components} />
+
+					<Stack direction='row' spacing={2}>
+						{prismic.isFilled.link(slice.primary.buttonLink) && (
+							<Button variant='contained' color='primary' size='large'>
+								<PrismicNextLink field={slice.primary.buttonLink}>
+									{slice.primary.buttonText || 'Learn More'}
+								</PrismicNextLink>
+							</Button>
+						)}
+						{prismic.isFilled.link(slice.primary.button_link_2) && (
+							<Button variant='contained' color='tertiary' size='large'>
+								<PrismicNextLink field={slice.primary.button_link_2}>
+									{slice.primary.button_text_2 || 'Learn More'}
+								</PrismicNextLink>
+							</Button>
+						)}
+					</Stack>
+				</Container>
+			</Container>
+		</section>
+	)
+}
+
+export default Hero
+

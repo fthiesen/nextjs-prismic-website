@@ -11,13 +11,35 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "Hero",
       "primary": {
-        "text": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "summary": {
           "type": "StructuredText",
           "config": {
-            "label": "Text",
+            "label": "Summary",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,heading1,strong,em"
+            "multi": "strong,em"
+          }
+        },
+        "backgroundImage": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "buttonText": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
           }
         },
         "buttonLink": {
@@ -28,19 +50,19 @@
             "select": null
           }
         },
-        "buttonText": {
+        "button_text_2": {
           "type": "Text",
           "config": {
-            "label": "Button Text",
+            "label": "Button Text 2",
             "placeholder": ""
           }
         },
-        "backgroundImage": {
-          "type": "Image",
+        "button_link_2": {
+          "type": "Link",
           "config": {
-            "label": "Background Image",
-            "constraint": {},
-            "thumbnails": []
+            "label": "Button Link 2",
+            "placeholder": "",
+            "select": null
           }
         }
       },

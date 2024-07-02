@@ -6,15 +6,15 @@ const Quote = ({ slice }) => {
 	return (
 		<Container
 			maxWidth={false}
-			sx={{ width: '100%', backgroundColor: `${slice.primary.colors.toLowerCase()}.main` }}
+			sx={{ width: '100%', backgroundColor: `${slice.primary?.colors?.toLowerCase()}.main` }}
 		>
 			{prismic.isFilled.richText(slice.primary.quote) && (
 				<Container
 					maxWidth='md'
-					sx={{ pt: 12, pb: 10, color: `${slice.primary.colors.toLowerCase()}.contrastText` }}
+					sx={{ pt: 12, pb: 10, color: `${slice.primary?.colors?.toLowerCase()}.contrastText` }}
 				>
 					<blockquote>
-						<Typography variant='h2'>
+						<Typography variant='h3'>
 							<span>&ldquo;</span>
 							<PrismicText field={slice.primary.quote} />
 							<span>&rdquo;</span>

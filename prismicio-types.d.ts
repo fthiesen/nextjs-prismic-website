@@ -355,24 +355,34 @@ export type AllDocumentTypes =
  */
 export interface HeroSliceDefaultPrimary {
   /**
-   * Text field in *Hero → Default → Primary*
+   * Title field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Summary field in *Hero → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.text
+   * - **API ID Path**: hero.default.primary.summary
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  text: prismic.RichTextField;
+  summary: prismic.RichTextField;
 
   /**
-   * Button Link field in *Hero → Default → Primary*
+   * Background Image field in *Hero → Default → Primary*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.buttonLink
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **API ID Path**: hero.default.primary.backgroundImage
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  buttonLink: prismic.LinkField;
+  backgroundImage: prismic.ImageField<never>;
 
   /**
    * Button Text field in *Hero → Default → Primary*
@@ -385,14 +395,34 @@ export interface HeroSliceDefaultPrimary {
   buttonText: prismic.KeyTextField;
 
   /**
-   * Background Image field in *Hero → Default → Primary*
+   * Button Link field in *Hero → Default → Primary*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.backgroundImage
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **API ID Path**: hero.default.primary.buttonLink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  backgroundImage: prismic.ImageField<never>;
+  buttonLink: prismic.LinkField;
+
+  /**
+   * Button Text 2 field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.button_text_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text_2: prismic.KeyTextField;
+
+  /**
+   * Button Link 2 field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.button_link_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link_2: prismic.LinkField;
 }
 
 /**

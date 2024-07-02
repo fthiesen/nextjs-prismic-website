@@ -32,13 +32,13 @@ const theme = createTheme({
 			main: '#594b42', // brown
 			light: '#65a970', // grove green
 			dark: '#65a970', // grove green
-			contrastText: '#b4d33a', // lime green
+			contrastText: '#d6df22', // neon mustard
 		},
 		tertiary: {
 			main: '#65a970', // grove green
 			light: '#66c5b1', // teal sky
 			dark: '#66c5b1', // teal sky
-			contrastText: '#d6df22', // neon mustard
+			contrastText: '#594b42', // brown
 		},
 		quaternary: {
 			main: '#66c5b1', // teal sky
@@ -61,6 +61,11 @@ const theme = createTheme({
 			fontSize: '1.4rem',
 		},
 		h2: {
+			fontSize: '4.6rem',
+			lineHeight: '1.1em',
+			fontWeight: 500,
+		},
+		h3: {
 			fontSize: '3.6rem',
 			lineHeight: '1.1em',
 			fontWeight: 500,
@@ -92,11 +97,20 @@ const theme = createTheme({
 						boxShadow: 'none',
 					},
 				}),
+				sizeLarge: {
+					fontSize: '1.4rem',
+					padding: '15px 25px',
+				},
 			},
 		},
 		MuiIcon: {
 			defaultProps: {
 				baseClassName: 'material-icons',
+			},
+			styleOverrides: {
+				root: {
+					fontSize: '2.4rem',
+				},
 			},
 		},
 		MuiList: {
