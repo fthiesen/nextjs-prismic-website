@@ -615,6 +615,18 @@ export interface QuoteSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   source: prismic.KeyTextField;
+
+  /**
+   * Colors field in *Quote → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote.default.primary.colors
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  colors: prismic.SelectField<
+    "Primary" | "Secondary" | "Tertiary" | "Quaternary"
+  >;
 }
 
 /**

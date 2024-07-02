@@ -26,6 +26,19 @@
             "label": "Source",
             "placeholder": ""
           }
+        },
+        "colors": {
+          "type": "Select",
+          "config": {
+            "label": "Colors",
+            "placeholder": "",
+            "options": [
+              "Primary",
+              "Secondary",
+              "Tertiary",
+              "Quaternary"
+            ]
+          }
         }
       },
       "items": {},

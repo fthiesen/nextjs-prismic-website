@@ -23,32 +23,57 @@ const theme = createTheme({
 	palette: {
 		mode: 'light',
 		primary: {
-			main: '#b4d33a',
-			light: '#d6df22',
-			dark: '#d6df22',
+			main: '#b4d33a', // lime green
+			light: '#d6df22', // neon mustard
+			dark: '#d6df22', // neon mustard
 			contrastText: '#594b42', // brown
 		},
 		secondary: {
 			main: '#594b42', // brown
-			light: '#d6df22',
-			dark: '#65a970',
+			light: '#65a970', // grove green
+			dark: '#65a970', // grove green
+			contrastText: '#b4d33a', // lime green
+		},
+		tertiary: {
+			main: '#65a970', // grove green
+			light: '#66c5b1', // teal sky
+			dark: '#66c5b1', // teal sky
+			contrastText: '#d6df22', // neon mustard
+		},
+		quaternary: {
+			main: '#66c5b1', // teal sky
+			light: '#b4d33a', // lime green
+			dark: '#b4d33a', // lime green
 			contrastText: '#594b42', // brown
 		},
 		text: {
 			primary: '#594b42', // brown
-			secondary: '#fff',
-			tertiary: '#65a970',
+			secondary: 'white',
+			tertiary: '#65a970', // grove green
 		},
 	},
 	body: {
 		htmlFontSize: 10,
-		fontSize: '1.4rem',
 	},
 	typography: {
 		fontFamily: poppins.style.fontFamily,
-		fontSize: '1.6rem',
+		body1: {
+			fontSize: '1.4rem',
+		},
+		h2: {
+			fontSize: '3.6rem',
+			lineHeight: '1.1em',
+			fontWeight: 500,
+		},
 	},
 	components: {
+		MuiAppBar: {
+			styleOverrides: {
+				root: {
+					boxShadow: 'none',
+				},
+			},
+		},
 		MuiButton: {
 			styleOverrides: {
 				root: ({ theme }) => ({
