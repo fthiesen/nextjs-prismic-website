@@ -8,6 +8,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
 
 import theme from '@/theme'
 import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
 
 /**
  * @param {{ children: React.ReactNode }}
@@ -31,6 +32,7 @@ export default async function RootLayout({ children }) {
 						{/* @ts-expect-error Async Server Component */}
 						<Header navigation={navigation} settings={settings} />
 						{children}
+						<Footer settings={settings} />
 						<PrismicPreview repositoryName={repositoryName} />
 					</ThemeProvider>
 				</AppRouterCacheProvider>

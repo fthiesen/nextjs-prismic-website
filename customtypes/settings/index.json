@@ -22,6 +22,42 @@
           "placeholder": ""
         }
       },
+      "address": {
+        "type": "Text",
+        "config": {
+          "label": "Address",
+          "placeholder": ""
+        }
+      },
+      "email": {
+        "type": "Text",
+        "config": {
+          "label": "Email",
+          "placeholder": ""
+        }
+      },
+      "phone": {
+        "type": "Text",
+        "config": {
+          "label": "Phone",
+          "placeholder": ""
+        }
+      },
+      "copyright_year": {
+        "type": "Text",
+        "config": {
+          "label": "Copyright Year",
+          "placeholder": ""
+        }
+      },
+      "favicon": {
+        "type": "Image",
+        "config": {
+          "label": "Favicon",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "logo_horizontal": {
         "type": "Image",
         "config": {
@@ -38,12 +74,47 @@
           "thumbnails": []
         }
       },
-      "favicon": {
+      "logo_horizontal_monochromatic": {
         "type": "Image",
         "config": {
-          "label": "Favicon",
+          "label": "Logo Horizontal Monochromatic",
           "constraint": {},
           "thumbnails": []
+        }
+      },
+      "logo_vertical_monochromatic": {
+        "type": "Image",
+        "config": {
+          "label": "Logo Vertical Monochromatic",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    },
+    "Icon Links": {
+      "icon_links": {
+        "type": "Group",
+        "config": {
+          "label": "Icon Links",
+          "repeat": true,
+          "fields": {
+            "name": {
+              "type": "Text",
+              "config": {
+                "label": "Name",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "allowTargetBlank": false,
+                "select": null
+              }
+            }
+          }
         }
       }
     }

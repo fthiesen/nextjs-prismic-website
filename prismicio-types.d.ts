@@ -269,6 +269,31 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 /**
+ * Item in *Settings → Icon Links*
+ */
+export interface SettingsDocumentDataIconLinksItem {
+  /**
+   * Name field in *Settings → Icon Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.icon_links[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Link field in *Settings → Icon Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.icon_links[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -295,6 +320,61 @@ interface SettingsDocumentData {
   slogan: prismic.KeyTextField;
 
   /**
+   * Address field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.address
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  address: prismic.KeyTextField;
+
+  /**
+   * Email field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * Phone field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.phone
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone: prismic.KeyTextField;
+
+  /**
+   * Copyright Year field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.copyright_year
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  copyright_year: prismic.KeyTextField;
+
+  /**
+   * Favicon field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.favicon
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  favicon: prismic.ImageField<never>;
+
+  /**
    * Logo Horizontal field in *Settings*
    *
    * - **Field Type**: Image
@@ -317,15 +397,35 @@ interface SettingsDocumentData {
   logo_vertical: prismic.ImageField<never>;
 
   /**
-   * Favicon field in *Settings*
+   * Logo Horizontal Monochromatic field in *Settings*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.favicon
+   * - **API ID Path**: settings.logo_horizontal_monochromatic
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  favicon: prismic.ImageField<never>;
+  logo_horizontal_monochromatic: prismic.ImageField<never>;
+
+  /**
+   * Logo Vertical Monochromatic field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.logo_vertical_monochromatic
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo_vertical_monochromatic: prismic.ImageField<never> /**
+   * Icon Links field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.icon_links[]
+   * - **Tab**: Icon Links
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */;
+  icon_links: prismic.GroupField<Simplify<SettingsDocumentDataIconLinksItem>>;
 }
 
 /**
@@ -891,6 +991,7 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
+      SettingsDocumentDataIconLinksItem,
       AllDocumentTypes,
       HeroSlice,
       HeroSliceDefaultPrimary,

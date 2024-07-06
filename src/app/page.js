@@ -4,15 +4,15 @@ import { SliceZone } from '@prismicio/react'
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
 
+const client = createClient()
+const page = await client.getByUID('page', 'home').catch(() => notFound())
+
 /**
  * @returns {Promise<import("next").Metadata>}
  */
 export async function generateMetadata() {
-	const client = createClient()
-	const page = await client.getByUID('page', 'home')
-
 	return {
-		title: page.data.title,
+		title: page.data.meta_title,
 		description: page.data.meta_description,
 		openGraph: {
 			title: page.data.meta_title,
@@ -26,9 +26,6 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-	const client = createClient()
-	const page = await client.getByUID('page', 'home').catch(() => notFound())
-
 	return (
 		<main>
 			<SliceZone slices={page.data.slices} components={components} />

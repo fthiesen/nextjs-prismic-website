@@ -5,6 +5,8 @@ import { SliceZone } from '@prismicio/react'
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
 
+const client = createClient()
+
 /**
  * @typedef {{ uid: string }} Params
  */
@@ -14,7 +16,6 @@ import { components } from '@/slices'
  * @returns {Promise<import("next").Metadata>}
  */
 export async function generateMetadata({ params }) {
-	const client = createClient()
 	const page = await client.getByUID('page', params.uid).catch(() => notFound())
 	const settings = await client.getSingle('settings')
 
