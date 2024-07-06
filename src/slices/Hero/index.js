@@ -48,7 +48,7 @@ const Hero = ({ slice }) => {
 					display: 'flex',
 					flexDirection: 'column',
 					alignItems: { sm: 'flex-start', md: 'center' },
-					gap: 3,
+					gap: 2,
 					mb: 5,
 				}}
 			>
@@ -56,7 +56,7 @@ const Hero = ({ slice }) => {
 
 				<PrismicRichText field={slice.primary.summary} components={components} />
 
-				<Stack direction='row' spacing={2}>
+				<Stack direction='row' spacing={2} sx={{ mt: 1 }}>
 					{prismic.isFilled.link(slice.primary.buttonLink) && (
 						<Button variant='contained' color='primary' size='large'>
 							<PrismicNextLink field={slice.primary.buttonLink}>

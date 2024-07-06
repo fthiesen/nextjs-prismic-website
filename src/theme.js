@@ -61,10 +61,16 @@ const theme = createTheme({
 		body1: {
 			fontSize: '1.4rem',
 		},
+		h1: {
+			fontFamily: 'Chalet-LondonNineteenEighty, Arial, sans-serif',
+			fontSize: '5.6rem',
+			fontWeight: 600,
+		},
 		h2: {
+			fontFamily: 'Chalet-LondonNineteenEighty, Arial, sans-serif',
 			fontSize: '4.6rem',
 			lineHeight: '1.1em',
-			fontWeight: 500,
+			fontWeight: 600,
 		},
 		h3: {
 			fontSize: '3.6rem',

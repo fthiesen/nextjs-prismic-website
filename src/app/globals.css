@@ -6,3 +6,19 @@ html {
 	font-size: 62.5%; /* 62.5% of 16px = 10px */
 }
 
+@font-face {
+	font-family: 'SouciSans';
+	src: url('/fonts/SouciSansNF.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Chalet-LondonNineteenEighty';
+	src: url('/fonts/Chalet-LondonNineteenEighty.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
