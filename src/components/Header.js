@@ -26,14 +26,14 @@ const StyledHorizontalMenuList = styled(MenuList)(({ theme }) => ({
 		backgroundColor: 'transparent !important',
 		textDecoration: 'underline',
 	},
-	[theme.breakpoints.down('md')]: {
+	[theme.breakpoints.down('navigation')]: {
 		display: 'none',
 	},
 }))
 
 const MobileWrapper = styled('div')(({ theme }) => ({
 	display: 'none',
-	[theme.breakpoints.down('md')]: {
+	[theme.breakpoints.down('navigation')]: {
 		display: 'flex',
 	},
 }))
@@ -78,7 +78,6 @@ const StyledVerticalMenuList = styled(MenuList)(({ theme }) => ({
 }))
 
 export const Header = ({ navigation, settings }) => {
-	console.log('navigation', navigation)
 	const [anchorEl, setAnchorEl] = useState(null)
 	const open = Boolean(anchorEl)
 

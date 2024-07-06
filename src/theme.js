@@ -15,9 +15,10 @@ const theme = createTheme({
 		values: {
 			xs: 0,
 			sm: 600,
-			md: 960,
+			md: 900,
 			lg: 1200,
 			xl: 1536,
+			navigation: 1010,
 		},
 	},
 	palette: {
@@ -110,18 +111,6 @@ const theme = createTheme({
 			styleOverrides: {
 				root: {
 					fontSize: '2.4rem',
-				},
-			},
-		},
-		MuiList: {
-			styleOverrides: {
-				root: {
-					'& .MuiButtonBase-root': {
-						fontSize: '1.4rem',
-					},
-					'& .MuiListItem-root': {
-						fontSize: '1.4rem',
-					},
 				},
 			},
 		},
