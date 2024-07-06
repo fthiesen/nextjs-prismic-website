@@ -451,6 +451,51 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
+ * Primary content in *Carousel → Default → Primary*
+ */
+export interface CarouselSliceDefaultPrimary {
+  /**
+   * Content field in *Carousel → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  content: prismic.ContentRelationshipField<"instructor">;
+}
+
+/**
+ * Default variation for Carousel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CarouselSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CarouselSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Carousel*
+ */
+type CarouselSliceVariation = CarouselSliceDefault;
+
+/**
+ * Carousel Shared Slice
+ *
+ * - **API ID**: `carousel`
+ * - **Description**: Carousel
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CarouselSlice = prismic.SharedSlice<
+  "carousel",
+  CarouselSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -723,59 +768,207 @@ export type ImageCardsSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Quote → Default → Primary*
+ * Primary content in *Quote → Color Scheme 1 → Primary*
  */
-export interface QuoteSliceDefaultPrimary {
+export interface QuoteSlicePrimaryPrimary {
   /**
-   * Quote field in *Quote → Default → Primary*
+   * Quote field in *Quote → Color Scheme 1 → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: quote.default.primary.quote
+   * - **API ID Path**: quote.primary.primary.quote
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   quote: prismic.RichTextField;
 
   /**
-   * Source field in *Quote → Default → Primary*
+   * Source field in *Quote → Color Scheme 1 → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: quote.default.primary.source
+   * - **API ID Path**: quote.primary.primary.source
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  source: prismic.KeyTextField;
+}
+
+/**
+ * Color Scheme 1 variation for Quote Slice
+ *
+ * - **API ID**: `primary`
+ * - **Description**: Quote
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuoteSlicePrimary = prismic.SharedSliceVariation<
+  "primary",
+  Simplify<QuoteSlicePrimaryPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Quote → Color Scheme 2 → Primary*
+ */
+export interface QuoteSliceSecondaryPrimary {
+  /**
+   * Quote field in *Quote → Color Scheme 2 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote.secondary.primary.quote
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  quote: prismic.RichTextField;
+
+  /**
+   * Source field in *Quote → Color Scheme 2 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote.secondary.primary.source
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   source: prismic.KeyTextField;
 
   /**
-   * Colors field in *Quote → Default → Primary*
+   * Colors field in *Quote → Color Scheme 2 → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **API ID Path**: quote.default.primary.colors
+   * - **Default Value**: Primary
+   * - **API ID Path**: quote.secondary.primary.colors
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   colors: prismic.SelectField<
-    "Primary" | "Secondary" | "Tertiary" | "Quaternary"
+    "Primary" | "Secondary" | "Tertiary" | "Quaternary",
+    "filled"
   >;
 }
 
 /**
- * Default variation for Quote Slice
+ * Color Scheme 2 variation for Quote Slice
  *
- * - **API ID**: `default`
+ * - **API ID**: `secondary`
  * - **Description**: Quote
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type QuoteSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<QuoteSliceDefaultPrimary>,
+export type QuoteSliceSecondary = prismic.SharedSliceVariation<
+  "secondary",
+  Simplify<QuoteSliceSecondaryPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Quote → Color Scheme 3 → Primary*
+ */
+export interface QuoteSliceTertiaryPrimary {
+  /**
+   * Quote field in *Quote → Color Scheme 3 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote.tertiary.primary.quote
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  quote: prismic.RichTextField;
+
+  /**
+   * Source field in *Quote → Color Scheme 3 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote.tertiary.primary.source
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  source: prismic.KeyTextField;
+
+  /**
+   * Colors field in *Quote → Color Scheme 3 → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Primary
+   * - **API ID Path**: quote.tertiary.primary.colors
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  colors: prismic.SelectField<
+    "Primary" | "Secondary" | "Tertiary" | "Quaternary",
+    "filled"
+  >;
+}
+
+/**
+ * Color Scheme 3 variation for Quote Slice
+ *
+ * - **API ID**: `tertiary`
+ * - **Description**: Quote
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuoteSliceTertiary = prismic.SharedSliceVariation<
+  "tertiary",
+  Simplify<QuoteSliceTertiaryPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Quote → Color Scheme 4 → Primary*
+ */
+export interface QuoteSliceQuaternaryPrimary {
+  /**
+   * Quote field in *Quote → Color Scheme 4 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote.quaternary.primary.quote
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  quote: prismic.RichTextField;
+
+  /**
+   * Source field in *Quote → Color Scheme 4 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: quote.quaternary.primary.source
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  source: prismic.KeyTextField;
+
+  /**
+   * Colors field in *Quote → Color Scheme 4 → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Primary
+   * - **API ID Path**: quote.quaternary.primary.colors
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  colors: prismic.SelectField<
+    "Primary" | "Secondary" | "Tertiary" | "Quaternary",
+    "filled"
+  >;
+}
+
+/**
+ * Color Scheme 4 variation for Quote Slice
+ *
+ * - **API ID**: `quaternary`
+ * - **Description**: Quote
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuoteSliceQuaternary = prismic.SharedSliceVariation<
+  "quaternary",
+  Simplify<QuoteSliceQuaternaryPrimary>,
   never
 >;
 
 /**
  * Slice variation for *Quote*
  */
-type QuoteSliceVariation = QuoteSliceDefault;
+type QuoteSliceVariation =
+  | QuoteSlicePrimary
+  | QuoteSliceSecondary
+  | QuoteSliceTertiary
+  | QuoteSliceQuaternary;
 
 /**
  * Quote Shared Slice
@@ -993,6 +1186,10 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataIconLinksItem,
       AllDocumentTypes,
+      CarouselSlice,
+      CarouselSliceDefaultPrimary,
+      CarouselSliceVariation,
+      CarouselSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
@@ -1009,9 +1206,15 @@ declare module "@prismicio/client" {
       ImageCardsSliceVariation,
       ImageCardsSliceDefault,
       QuoteSlice,
-      QuoteSliceDefaultPrimary,
+      QuoteSlicePrimaryPrimary,
+      QuoteSliceSecondaryPrimary,
+      QuoteSliceTertiaryPrimary,
+      QuoteSliceQuaternaryPrimary,
       QuoteSliceVariation,
-      QuoteSliceDefault,
+      QuoteSlicePrimary,
+      QuoteSliceSecondary,
+      QuoteSliceTertiary,
+      QuoteSliceQuaternary,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceTwoColumnsPrimary,

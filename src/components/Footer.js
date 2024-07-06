@@ -49,7 +49,7 @@ export const Footer = ({ settings }) => {
 						}}
 					>
 						<Typography>{settings.data.address}</Typography>
-						<Typography>{settings.data.phone}</Typography>
+						<Typography sx={{ mt: -0.5 }}>{settings.data.phone}</Typography>
 					</Stack>
 
 					{/* social media icons */}

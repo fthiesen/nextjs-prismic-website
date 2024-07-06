@@ -1,7 +1,35 @@
 [
 	{
 		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
+		"variation": "primary",
+		"primary": {
+			"quote": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Cillum labore deserunt occaecat occaecat deserunt elit elit exercitation laboris reprehenderit amet mollit."
+						}
+					}
+				]
+			},
+			"source": {
+				"__TYPE__": "FieldContent",
+				"value": "fact",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "secondary",
 		"primary": {
 			"quote": {
 				"__TYPE__": "StructuredTextContent",
@@ -9,19 +37,85 @@
 					{
 						"type": "heading3",
 						"content": {
-							"text": "Closely"
+							"text": "Tightly"
 						}
 					}
 				]
 			},
 			"source": {
 				"__TYPE__": "FieldContent",
-				"value": "count",
+				"value": "product",
 				"type": "Text"
 			},
 			"colors": {
 				"__TYPE__": "FieldContent",
 				"value": "Secondary",
+				"type": "Select"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "tertiary",
+		"primary": {
+			"quote": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Crack"
+						}
+					}
+				]
+			},
+			"source": {
+				"__TYPE__": "FieldContent",
+				"value": "upper",
+				"type": "Text"
+			},
+			"colors": {
+				"__TYPE__": "FieldContent",
+				"value": "Primary",
+				"type": "Select"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "quaternary",
+		"primary": {
+			"quote": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "According"
+						}
+					}
+				]
+			},
+			"source": {
+				"__TYPE__": "FieldContent",
+				"value": "record",
+				"type": "Text"
+			},
+			"colors": {
+				"__TYPE__": "FieldContent",
+				"value": "Primary",
 				"type": "Select"
 			}
 		},

@@ -7,13 +7,13 @@ const Quote = ({ slice }) => {
 		<Container
 			component='section'
 			maxWidth={false}
-			sx={{ width: '100%', backgroundColor: `${slice.primary?.colors?.toLowerCase()}.main` }}
+			sx={{ width: '100%', backgroundColor: `${slice.variation}.main` }}
 		>
 			{prismic.isFilled.richText(slice.primary.quote) && (
 				<Container
 					component='blockquote'
 					maxWidth='md'
-					sx={{ pt: 12, pb: 10, color: `${slice.primary?.colors?.toLowerCase()}.contrastText` }}
+					sx={{ pt: 12, pb: 10, color: `${slice.variation}.contrastText` }}
 				>
 					<Typography variant='h3'>
 						<span>&ldquo;</span>
