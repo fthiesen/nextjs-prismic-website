@@ -9,6 +9,29 @@
 					"__TYPE__": "DocumentLink",
 					"id": "mock_document_id"
 				}
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "driving",
+				"type": "Text"
+			},
+			"test": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"rrr",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "2",
+									"type": "Select"
+								}
+							]
+						]
+					}
+				]
 			}
 		},
 		"items": []

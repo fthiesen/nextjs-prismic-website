@@ -105,7 +105,7 @@ export const Header = ({ navigation, settings }) => {
 					<PrismicNextLink href='/'>
 						<StyledLogo
 							field={settings.data.logo_horizontal}
-							alt={settings.data.logo_horizontal.alt}
+							alt={settings.data.logo_horizontal.alt || ''}
 							height={40}
 						/>
 					</PrismicNextLink>

@@ -180,6 +180,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | CarouselSlice
   | HeroSlice
   | QuoteSlice
   | TextSlice
@@ -451,9 +452,34 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
+ * Item in *Carousel → Default → Primary → Test*
+ */
+export interface CarouselSliceDefaultPrimaryTestItem {
+  /**
+   * rrr field in *Carousel → Default → Primary → Test*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.default.primary.test[].rrr
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  rrr: prismic.SelectField<"1" | "2">;
+}
+
+/**
  * Primary content in *Carousel → Default → Primary*
  */
 export interface CarouselSliceDefaultPrimary {
+  /**
+   * Title field in *Carousel → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
   /**
    * Content field in *Carousel → Default → Primary*
    *
@@ -463,6 +489,16 @@ export interface CarouselSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   content: prismic.ContentRelationshipField<"instructor">;
+
+  /**
+   * Test field in *Carousel → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.default.primary.test[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  test: prismic.GroupField<Simplify<CarouselSliceDefaultPrimaryTestItem>>;
 }
 
 /**
@@ -1187,6 +1223,7 @@ declare module "@prismicio/client" {
       SettingsDocumentDataIconLinksItem,
       AllDocumentTypes,
       CarouselSlice,
+      CarouselSliceDefaultPrimaryTestItem,
       CarouselSliceDefaultPrimary,
       CarouselSliceVariation,
       CarouselSliceDefault,

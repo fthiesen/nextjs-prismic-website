@@ -12,6 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
         "content": {
           "type": "Link",
           "config": {
@@ -20,6 +27,26 @@
             "customtypes": [
               "instructor"
             ]
+          }
+        },
+        "test": {
+          "type": "Group",
+          "config": {
+            "label": "Test",
+            "repeat": true,
+            "fields": {
+              "rrr": {
+                "type": "Select",
+                "config": {
+                  "label": "rrr",
+                  "placeholder": "",
+                  "options": [
+                    "1",
+                    "2"
+                  ]
+                }
+              }
+            }
           }
         }
       },
