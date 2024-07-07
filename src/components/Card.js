@@ -1,51 +1,36 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material'
-import { PrismicNextImage } from '@prismicio/next'
+'use client'
+
 import React from 'react'
+import { Box, Typography, useTheme } from '@mui/material'
+import { PrismicNextImage } from '@prismicio/next'
+import { PrismicText } from '@prismicio/react'
 
 const CardComponent = ({ title, imageField, content }) => {
+	const theme = useTheme()
 	return (
-		<Card sx={{ maxWidth: 345 }}>
-			<CardActionArea>
-				{/* <CardMedia
-					component='img'
-					height='140'
-					image='/static/images/cards/contemplative-reptile.jpg'
-					alt='green iguana'
-				/> */}
-				<PrismicNextImage
-					field={imageField}
-					alt={title || ''}
-					// fill={true}
-					className='object-cover'
-				/>
-			</CardActionArea>
-			<CardContent>
+		<Box
+			sx={{
+				p: 3,
+				display: 'flex',
+				gap: 2,
+				flexDirection: 'column',
+				alignItems: 'center',
+				height: 'auto',
+				border: `solid 1px ${theme.palette.primary.main}`,
+			}}
+		>
+			<PrismicNextImage
+				field={imageField}
+				alt={title || ''}
+				className='object-cover rounded-full w-64 h-64'
+			/>
+			<Typography variant='h4' sx={{ pt: 0.4, color: 'tertiary.main' }}>
 				{title}
-				{/* {content} */}
-			</CardContent>
-		</Card>
-	)
-
-	return (
-		<Card sx={{ maxWidth: 345 }}>
-			<CardActionArea>
-				<CardMedia
-					component='img'
-					height='140'
-					image='/static/images/cards/contemplative-reptile.jpg'
-					alt='green iguana'
-				/>
-				{/* <PrismicNextImage field={imageField} alt={title || ''} height={40} /> */}
-				<CardContent>
-					<Typography gutterBottom variant='h5' component='div'>
-						{title}
-					</Typography>
-					<Typography variant='body2' color='text.secondary'>
-						{content}
-					</Typography>
-				</CardContent>
-			</CardActionArea>
-		</Card>
+			</Typography>
+			<Typography>
+				<PrismicText field={content} />
+			</Typography>
+		</Box>
 	)
 }
 

@@ -1,8 +1,9 @@
 import CardComponent from '@/components/Card'
+import Section from '@/components/Section'
 import { createClient } from '@/prismicio'
-import { Container, Typography } from '@mui/material'
-import { PrismicNextImage } from '@prismicio/next'
-import { PrismicText } from '@prismicio/react'
+import { StyledIconButton } from '@/theme'
+import { Box, Button, Icon, Stack } from '@mui/material'
+import { PrismicNextLink } from '@prismicio/next'
 
 /**
  * @typedef {import("@prismicio/client").Content.CarouselSlice} CarouselSlice
@@ -16,31 +17,49 @@ const Carousel = async ({ slice }) => {
 	const contentType = slice.primary.content.type
 	const items = await client.getAllByType(contentType)
 
-	console.log('items', items)
+	// console.log('items', items)
 
 	return (
-		<Container
-			component='section'
-			maxWidth={false}
-			data-slice-type={slice.slice_type}
-			data-slice-variation={slice.variation}
-		>
-			<Container maxWidth='md'>
+		<Section title={slice.primary.title}>
+			<Stack direction='row' spacing={2} sx={{ overflowX: 'hidden', position: 'relative' }}>
 				{items
 					.sort((a, b) => (a.data?.order || 999999) - (b.data?.order || 999999))
 					.map(item => {
-						console.log('item', item.data.profile_picture)
 						return (
-							<CardComponent
+							<Box
 								key={item.id}
-								title={item.data.name}
-								imageField={item.data.profile_picture}
-								content={item.data.summary}
-							/>
+								sx={{
+									width: {
+										md: 'calc(33.33% - 11px)',
+										sm: 'calc(50% - 8px)',
+										xs: '100%',
+									},
+									flexShrink: 0,
+								}}
+							>
+								<CardComponent
+									title={item.data.name}
+									imageField={item.data.profile_picture}
+									content={item.data.summary}
+								/>
+							</Box>
 						)
 					})}
-			</Container>
-		</Container>
+			</Stack>
+			<StyledIconButton sx={{ left: { xs: -5, sm: 5 } }}>
+				<Icon>chevron_left</Icon>
+			</StyledIconButton>
+			<StyledIconButton sx={{ right: { xs: -5, sm: 5 } }}>
+				<Icon>chevron_right</Icon>
+			</StyledIconButton>
+			<Stack direction='row' sx={{ justifyContent: 'center', p: 4 }}>
+				<PrismicNextLink href={slice.primary.button_link.url}>
+					<Button variant='contained' color='primary'>
+						{slice.primary.button_text || 'Learn More'}
+					</Button>
+				</PrismicNextLink>
+			</Stack>
+		</Section>
 	)
 }
 

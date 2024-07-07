@@ -452,21 +452,6 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
- * Item in *Carousel → Default → Primary → Test*
- */
-export interface CarouselSliceDefaultPrimaryTestItem {
-  /**
-   * rrr field in *Carousel → Default → Primary → Test*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: carousel.default.primary.test[].rrr
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  rrr: prismic.SelectField<"1" | "2">;
-}
-
-/**
  * Primary content in *Carousel → Default → Primary*
  */
 export interface CarouselSliceDefaultPrimary {
@@ -491,14 +476,24 @@ export interface CarouselSliceDefaultPrimary {
   content: prismic.ContentRelationshipField<"instructor">;
 
   /**
-   * Test field in *Carousel → Default → Primary*
+   * Button Text field in *Carousel → Default → Primary*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: carousel.default.primary.test[]
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **API ID Path**: carousel.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  test: prismic.GroupField<Simplify<CarouselSliceDefaultPrimaryTestItem>>;
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *Carousel → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
 }
 
 /**
@@ -530,6 +525,78 @@ export type CarouselSlice = prismic.SharedSlice<
   "carousel",
   CarouselSliceVariation
 >;
+
+/**
+ * Primary content in *Grid → Default → Primary*
+ */
+export interface GridSliceDefaultPrimary {
+  /**
+   * Title field in *Grid → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Content field in *Grid → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  content: prismic.ContentRelationshipField;
+
+  /**
+   * Button Text field in *Grid → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *Grid → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: grid.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+}
+
+/**
+ * Default variation for Grid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GridSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<GridSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Grid*
+ */
+type GridSliceVariation = GridSliceDefault;
+
+/**
+ * Grid Shared Slice
+ *
+ * - **API ID**: `grid`
+ * - **Description**: Grid
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GridSlice = prismic.SharedSlice<"grid", GridSliceVariation>;
 
 /**
  * Primary content in *Hero → Default → Primary*
@@ -1223,10 +1290,13 @@ declare module "@prismicio/client" {
       SettingsDocumentDataIconLinksItem,
       AllDocumentTypes,
       CarouselSlice,
-      CarouselSliceDefaultPrimaryTestItem,
       CarouselSliceDefaultPrimary,
       CarouselSliceVariation,
       CarouselSliceDefault,
+      GridSlice,
+      GridSliceDefaultPrimary,
+      GridSliceVariation,
+      GridSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

@@ -3,6 +3,11 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "tropical",
+				"type": "Text"
+			},
 			"content": {
 				"__TYPE__": "LinkContent",
 				"value": {
@@ -10,14 +15,9 @@
 					"id": "mock_document_id"
 				}
 			},
-			"title": {
-				"__TYPE__": "FieldContent",
-				"value": "driving",
-				"type": "Text"
-			},
 			"button_text": {
 				"__TYPE__": "FieldContent",
-				"value": "medicine",
+				"value": "area",
 				"type": "Text"
 			},
 			"button_link": {

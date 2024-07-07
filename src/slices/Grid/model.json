@@ -1,8 +1,8 @@
 {
-  "id": "carousel",
+  "id": "grid",
   "type": "SharedSlice",
-  "name": "Carousel",
-  "description": "Carousel",
+  "name": "Grid",
+  "description": "Grid",
   "variations": [
     {
       "id": "default",
@@ -23,10 +23,7 @@
           "type": "Link",
           "config": {
             "label": "Content",
-            "select": "document",
-            "customtypes": [
-              "instructor"
-            ]
+            "select": "document"
           }
         },
         "button_text": {

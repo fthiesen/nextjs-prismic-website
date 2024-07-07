@@ -2,6 +2,7 @@
 
 import { Poppins } from 'next/font/google'
 import { createTheme } from '@mui/material/styles'
+import { IconButton, styled } from '@mui/material'
 
 const poppins = Poppins({
 	weight: ['400', '500'],
@@ -77,6 +78,11 @@ const theme = createTheme({
 			lineHeight: '1.1em',
 			fontWeight: 500,
 		},
+		h4: {
+			fontSize: '2rem',
+			lineHeight: '1.1em',
+			fontWeight: 500,
+		},
 	},
 	components: {
 		MuiAppBar: {
@@ -129,6 +135,15 @@ const theme = createTheme({
 		// 		}),
 		// 	},
 		// },
+	},
+})
+
+export const StyledIconButton = styled(IconButton)({
+	position: 'absolute',
+	top: '50%',
+	backgroundColor: theme.palette.primary.main,
+	'&:hover': {
+		backgroundColor: theme.palette.primary.light,
 	},
 })
 
