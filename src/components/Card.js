@@ -15,7 +15,7 @@ const CardComponent = ({ title, imageField, content }) => {
 				gap: 2,
 				flexDirection: 'column',
 				alignItems: 'center',
-				height: 'auto',
+				height: '100%',
 				border: `solid 1px ${theme.palette.primary.main}`,
 			}}
 		>

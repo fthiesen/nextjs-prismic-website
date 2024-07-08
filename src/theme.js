@@ -145,6 +145,9 @@ export const StyledIconButton = styled(IconButton)({
 	'&:hover': {
 		backgroundColor: theme.palette.primary.light,
 	},
+	'&.Mui-disabled': {
+		display: 'none',
+	},
 })
 
 export default theme
