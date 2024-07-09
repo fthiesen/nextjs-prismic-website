@@ -1,4 +1,4 @@
-import { Container, Typography } from '@mui/material'
+import { Container, Stack, Typography } from '@mui/material'
 import React from 'react'
 
 const Section = ({ children, title, backgroundColor }) => {
@@ -8,11 +8,11 @@ const Section = ({ children, title, backgroundColor }) => {
 			maxWidth={false}
 			sx={{ width: '100%', backgroundColor: backgroundColor || 'white' }}
 		>
-			<Container component='div' maxWidth='md' sx={{ pt: 10, pb: 8, position: 'relative' }}>
+			<Container component='div' maxWidth='lg' sx={{ pt: 10, pb: 8 }}>
 				<Typography variant='h3' className='text-center pb-16'>
 					{title}
 				</Typography>
-				{children}
+				<Stack sx={{ position: 'relative' }}>{children}</Stack>
 			</Container>
 		</Container>
 	)

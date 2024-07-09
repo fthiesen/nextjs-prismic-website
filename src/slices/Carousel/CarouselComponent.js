@@ -11,10 +11,18 @@ const CarouselComponent = ({ slice, items }) => {
 	const theme = useTheme()
 	const scrollRef = useRef(null)
 	const [scrollPosition, setScrollPosition] = useState(0)
-	const GAP = 16
+	const [iconButtonTop, setIconButtonTop] = useState(0)
 
+	const GAP = 16
+	const isLgUp = useMediaQuery(theme.breakpoints.up('lg'))
 	const isMdUp = useMediaQuery(theme.breakpoints.up('md'))
 	const isSmUp = useMediaQuery(theme.breakpoints.up('sm'))
+
+	useEffect(() => {
+		if (scrollRef.current) {
+			setIconButtonTop(scrollRef.current.offsetHeight / 2 - 40 / 2)
+		}
+	}, [])
 
 	useEffect(() => {
 		const scrollContainer = scrollRef.current
@@ -37,7 +45,10 @@ const CarouselComponent = ({ slice, items }) => {
 		// Reset the scroll position when the screen size changes
 		scrollContainer.scrollLeft = 0
 		setScrollPosition(0)
-	}, [isMdUp, isSmUp])
+
+		// Reset the icon button position when the screen size changes
+		setIconButtonTop(scrollRef.current.offsetHeight / 2 - 40 / 2)
+	}, [isLgUp, isMdUp, isSmUp])
 
 	const handleSlide = direction => {
 		const scrollContainer = scrollRef.current
@@ -45,7 +56,9 @@ const CarouselComponent = ({ slice, items }) => {
 
 		// Recalculate the scroll amount based on the new screen size
 		let scrollAmount
-		if (isMdUp) {
+		if (isLgUp) {
+			scrollAmount = (scrollContainer.offsetWidth - GAP * 3) / 4 + GAP
+		} else if (isMdUp) {
 			scrollAmount = (scrollContainer.offsetWidth - GAP * 2) / 3 + GAP
 		} else if (isSmUp) {
 			scrollAmount = (scrollContainer.offsetWidth - GAP) / 2 + GAP
@@ -63,12 +76,7 @@ const CarouselComponent = ({ slice, items }) => {
 
 	return (
 		<Section title={slice.primary.title}>
-			<Stack
-				direction='row'
-				spacing={2}
-				sx={{ overflowX: 'hidden', position: 'relative' }}
-				ref={scrollRef}
-			>
+			<Stack direction='row' spacing={2} sx={{ overflowX: 'hidden' }} ref={scrollRef}>
 				{items
 					.sort((a, b) => (a.data?.order || 999999) - (b.data?.order || 999999))
 					.map(item => {
@@ -77,8 +85,9 @@ const CarouselComponent = ({ slice, items }) => {
 								key={item.id}
 								sx={{
 									width: {
-										md: 'calc(33.33% - 11px)',
-										sm: 'calc(50% - 8px)',
+										lg: `calc(25% - ${(GAP * 3) / 4}px)`,
+										md: `calc(33.33% - ${(GAP * 2) / 3}px)`,
+										sm: `calc(50% - ${GAP / 2}px)`,
 										xs: '100%',
 									},
 									flexShrink: 0,
@@ -94,22 +103,24 @@ const CarouselComponent = ({ slice, items }) => {
 					})}
 			</Stack>
 			<StyledIconButton
-				sx={{ left: { xs: -5, sm: 5 } }}
+				sx={{ left: -18 }}
 				onClick={() => handleSlide('right')}
 				disabled={isAtStart}
+				top={iconButtonTop}
 			>
 				<Icon>chevron_left</Icon>
 			</StyledIconButton>
 			<StyledIconButton
-				sx={{ right: { xs: -5, sm: 5 } }}
+				sx={{ right: -18 }}
 				onClick={() => handleSlide('left')}
 				disabled={isAtEnd}
+				top={iconButtonTop}
 			>
 				<Icon>chevron_right</Icon>
 			</StyledIconButton>
 			<Stack direction='row' sx={{ justifyContent: 'center', p: 4 }}>
 				<PrismicNextLink href={slice.primary.button_link.url}>
-					<Button variant='contained' color='primary'>
+					<Button variant='contained' color='primary' size='large'>
 						{slice.primary.button_text || 'Learn More'}
 					</Button>
 				</PrismicNextLink>

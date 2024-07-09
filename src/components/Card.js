@@ -16,15 +16,18 @@ const CardComponent = ({ title, imageField, content }) => {
 				flexDirection: 'column',
 				alignItems: 'center',
 				height: '100%',
-				border: `solid 1px ${theme.palette.primary.main}`,
+				border: `solid 1px ${theme.palette.secondary.main}`,
+				borderRadius: 4,
+				color: 'secondary.main',
+				backgroundColor: 'primary.main',
 			}}
 		>
 			<PrismicNextImage
 				field={imageField}
 				alt={title || ''}
-				className='object-cover rounded-full w-64 h-64'
+				className='object-cover rounded-full w-64 h-64 border border-secondary-main'
 			/>
-			<Typography variant='h4' sx={{ pt: 0.4, color: 'tertiary.main' }}>
+			<Typography variant='h4' sx={{ pt: 0.4 }}>
 				{title}
 			</Typography>
 			<Typography>

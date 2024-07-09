@@ -74,6 +74,7 @@ const theme = createTheme({
 			fontWeight: 600,
 		},
 		h3: {
+			// fontFamily: 'SouciSans, Arial, sans-serif',
 			fontSize: '3.6rem',
 			lineHeight: '1.1em',
 			fontWeight: 500,
@@ -138,16 +139,17 @@ const theme = createTheme({
 	},
 })
 
-export const StyledIconButton = styled(IconButton)({
+export const StyledIconButton = styled(IconButton)(({ top }) => ({
 	position: 'absolute',
-	top: '50%',
-	backgroundColor: theme.palette.primary.main,
+	top: top || '50%',
+	backgroundColor: theme.palette.primary.light,
+	border: `solid 1px ${theme.palette.secondary.main}`,
 	'&:hover': {
 		backgroundColor: theme.palette.primary.light,
 	},
 	'&.Mui-disabled': {
 		display: 'none',
 	},
-})
+}))
 
 export default theme
