@@ -19,7 +19,7 @@ const CardComponent = ({ title, imageField, content }) => {
 				border: `solid 1px ${theme.palette.secondary.main}`,
 				borderRadius: 4,
 				color: 'secondary.main',
-				backgroundColor: 'primary.main',
+				backgroundColor: 'white',
 			}}
 		>
 			<PrismicNextImage

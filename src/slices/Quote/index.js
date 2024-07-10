@@ -1,6 +1,6 @@
 import * as prismic from '@prismicio/client'
 import { PrismicText } from '@prismicio/react'
-import { Container, Stack, Typography } from '@mui/material'
+import { Container, Typography } from '@mui/material'
 
 const Quote = ({ slice }) => {
 	return (

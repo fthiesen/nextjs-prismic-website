@@ -142,7 +142,7 @@ const theme = createTheme({
 export const StyledIconButton = styled(IconButton)(({ top }) => ({
 	position: 'absolute',
 	top: top || '50%',
-	backgroundColor: theme.palette.primary.light,
+	backgroundColor: theme.palette.primary.main,
 	border: `solid 1px ${theme.palette.secondary.main}`,
 	'&:hover': {
 		backgroundColor: theme.palette.primary.light,
