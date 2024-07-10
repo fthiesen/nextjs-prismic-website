@@ -21,8 +21,9 @@ export const Footer = ({ settings }) => {
 					sx={{
 						flexWrap: 'wrap',
 						gap: 2,
-						justifyContent: { xs: 'center', sm: 'space-between' },
+						justifyContent: { xs: 'center', md: 'space-between' },
 						alignItems: 'center',
+						flexDirection: { xs: 'column', md: 'row' },
 					}}
 				>
 					{/* logo */}
@@ -84,7 +85,8 @@ export const Footer = ({ settings }) => {
 					sx={{
 						mt: { xs: 3, sm: 6 },
 						alignItems: 'center',
-						justifyContent: 'space-between',
+						justifyContent: { xs: 'center', sm: 'space-between' },
+						flexDirection: { xs: 'column', sm: 'row' },
 						mb: { xs: -2, sm: -3 },
 					}}
 				>
