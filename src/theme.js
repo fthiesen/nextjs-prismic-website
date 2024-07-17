@@ -44,8 +44,8 @@ const theme = createTheme({
 		},
 		quaternary: {
 			main: '#66c5b1', // teal sky
-			light: '#b4d33a', // lime green
-			dark: '#b4d33a', // lime green
+			light: '#7eddc9', // teal sky light
+			dark: '#7eddc9', // teal sky light
 			contrastText: '#594b42', // brown
 		},
 		text: {

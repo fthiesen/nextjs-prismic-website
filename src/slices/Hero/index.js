@@ -65,7 +65,7 @@ const Hero = ({ slice }) => {
 						</Button>
 					)}
 					{prismic.isFilled.link(slice.primary.button_link_2) && (
-						<Button variant='contained' color='tertiary' size='large'>
+						<Button variant='contained' color='quaternary' size='large'>
 							<PrismicNextLink field={slice.primary.button_link_2}>
 								{slice.primary.button_text_2 || 'Learn More'}
 							</PrismicNextLink>
