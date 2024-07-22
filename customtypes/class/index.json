@@ -1,7 +1,7 @@
 {
   "format": "custom",
-  "id": "instructor",
-  "label": "Instructor",
+  "id": "class",
+  "label": "Item",
   "repeatable": true,
   "status": true,
   "json": {
@@ -12,10 +12,10 @@
         },
         "type": "UID"
       },
-      "name": {
+      "title": {
         "type": "Text",
         "config": {
-          "label": "Name",
+          "label": "Title",
           "placeholder": ""
         }
       },
@@ -26,10 +26,10 @@
           "placeholder": ""
         }
       },
-      "profile_picture": {
+      "image": {
         "type": "Image",
         "config": {
-          "label": "Profile Picture",
+          "label": "Image",
           "constraint": {},
           "thumbnails": []
         }
@@ -43,10 +43,10 @@
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "bio": {
+      "content": {
         "type": "StructuredText",
         "config": {
-          "label": "Bio",
+          "label": "Content",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"

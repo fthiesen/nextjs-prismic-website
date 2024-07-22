@@ -94,8 +94,8 @@ const CarouselComponent = ({ slice, items }) => {
 								}}
 							>
 								<CardComponent
-									title={item.data.name}
-									imageField={item.data.profile_picture}
+									title={item.data.title}
+									imageField={item.data.image}
 									content={item.data.summary}
 								/>
 							</Box>

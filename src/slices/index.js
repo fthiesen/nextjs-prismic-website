@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
-  carousel: dynamic(() => import("./Carousel")),
+  carousel: dynamic(() => import("./ItemsList")),
   grid: dynamic(() => import("./Grid")),
   hero: dynamic(() => import("./Hero")),
   image: dynamic(() => import("./Image")),

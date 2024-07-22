@@ -5,80 +5,76 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
- * Content for Instructor documents
+ * Content for Item documents
  */
-interface InstructorDocumentData {
+interface ClassDocumentData {
   /**
-   * Name field in *Instructor*
+   * Title field in *Item*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: instructor.name
+   * - **API ID Path**: class.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  name: prismic.KeyTextField;
+  title: prismic.KeyTextField;
 
   /**
-   * Order field in *Instructor*
+   * Order field in *Item*
    *
    * - **Field Type**: Number
    * - **Placeholder**: *None*
-   * - **API ID Path**: instructor.order
+   * - **API ID Path**: class.order
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#number
    */
   order: prismic.NumberField;
 
   /**
-   * Profile Picture field in *Instructor*
+   * Image field in *Item*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: instructor.profile_picture
+   * - **API ID Path**: class.image
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  profile_picture: prismic.ImageField<never>;
+  image: prismic.ImageField<never>;
 
   /**
-   * Summary field in *Instructor*
+   * Summary field in *Item*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: instructor.summary
+   * - **API ID Path**: class.summary
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   summary: prismic.RichTextField;
 
   /**
-   * Bio field in *Instructor*
+   * Content field in *Item*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: instructor.bio
+   * - **API ID Path**: class.content
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  bio: prismic.RichTextField;
+  content: prismic.RichTextField;
 }
 
 /**
- * Instructor document from Prismic
+ * Item document from Prismic
  *
- * - **API ID**: `instructor`
+ * - **API ID**: `class`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type InstructorDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<InstructorDocumentData>,
-    "instructor",
-    Lang
-  >;
+export type ClassDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<ClassDocumentData>, "class", Lang>;
 
 /**
  * Item in *Navigation → Links*
@@ -446,17 +442,17 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
-  | InstructorDocument
+  | ClassDocument
   | NavigationDocument
   | PageDocument
   | SettingsDocument;
 
 /**
- * Primary content in *Carousel → Default → Primary*
+ * Primary content in *ItemsList → Default → Primary*
  */
 export interface CarouselSliceDefaultPrimary {
   /**
-   * Title field in *Carousel → Default → Primary*
+   * Title field in *ItemsList → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -466,17 +462,18 @@ export interface CarouselSliceDefaultPrimary {
   title: prismic.KeyTextField;
 
   /**
-   * Content field in *Carousel → Default → Primary*
+   * Tag field in *ItemsList → Default → Primary*
    *
-   * - **Field Type**: Content Relationship
+   * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **API ID Path**: carousel.default.primary.content
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **Default Value**: class
+   * - **API ID Path**: carousel.default.primary.tag
+   * - **Documentation**: https://prismic.io/docs/field#select
    */
-  content: prismic.ContentRelationshipField<"instructor">;
+  tag: prismic.SelectField<"class" | "instructor", "filled">;
 
   /**
-   * Button Text field in *Carousel → Default → Primary*
+   * Button Text field in *ItemsList → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -486,7 +483,7 @@ export interface CarouselSliceDefaultPrimary {
   button_text: prismic.KeyTextField;
 
   /**
-   * Button Link field in *Carousel → Default → Primary*
+   * Button Link field in *ItemsList → Default → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -497,7 +494,7 @@ export interface CarouselSliceDefaultPrimary {
 }
 
 /**
- * Default variation for Carousel Slice
+ * Default variation for ItemsList Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -510,12 +507,133 @@ export type CarouselSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *Carousel*
+ * Primary content in *ItemsList → Carousel → Primary*
  */
-type CarouselSliceVariation = CarouselSliceDefault;
+export interface CarouselSliceCarouselPrimary {
+  /**
+   * Title field in *ItemsList → Carousel → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.carousel.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Tag field in *ItemsList → Carousel → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: class
+   * - **API ID Path**: carousel.carousel.primary.tag
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  tag: prismic.SelectField<"class" | "instructor", "filled">;
+
+  /**
+   * Button Text field in *ItemsList → Carousel → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.carousel.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *ItemsList → Carousel → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.carousel.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+}
 
 /**
- * Carousel Shared Slice
+ * Carousel variation for ItemsList Slice
+ *
+ * - **API ID**: `carousel`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CarouselSliceCarousel = prismic.SharedSliceVariation<
+  "carousel",
+  Simplify<CarouselSliceCarouselPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *ItemsList → Grid → Primary*
+ */
+export interface CarouselSliceGridPrimary {
+  /**
+   * Title field in *ItemsList → Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.grid.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Tag field in *ItemsList → Grid → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: class
+   * - **API ID Path**: carousel.grid.primary.tag
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  tag: prismic.SelectField<"class" | "instructor", "filled">;
+
+  /**
+   * Button Text field in *ItemsList → Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.grid.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *ItemsList → Grid → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.grid.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+}
+
+/**
+ * Grid variation for ItemsList Slice
+ *
+ * - **API ID**: `grid`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CarouselSliceGrid = prismic.SharedSliceVariation<
+  "grid",
+  Simplify<CarouselSliceGridPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ItemsList*
+ */
+type CarouselSliceVariation =
+  | CarouselSliceDefault
+  | CarouselSliceCarousel
+  | CarouselSliceGrid;
+
+/**
+ * ItemsList Shared Slice
  *
  * - **API ID**: `carousel`
  * - **Description**: Carousel
@@ -1277,8 +1395,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
-      InstructorDocument,
-      InstructorDocumentData,
+      ClassDocument,
+      ClassDocumentData,
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,
@@ -1291,8 +1409,12 @@ declare module "@prismicio/client" {
       AllDocumentTypes,
       CarouselSlice,
       CarouselSliceDefaultPrimary,
+      CarouselSliceCarouselPrimary,
+      CarouselSliceGridPrimary,
       CarouselSliceVariation,
       CarouselSliceDefault,
+      CarouselSliceCarousel,
+      CarouselSliceGrid,
       GridSlice,
       GridSliceDefaultPrimary,
       GridSliceVariation,
