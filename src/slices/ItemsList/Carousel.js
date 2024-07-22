@@ -75,7 +75,12 @@ const Carousel = ({ slice, items }) => {
 	const isAtEnd = scrollPosition === scrollRef.current?.scrollWidth - scrollRef.current?.offsetWidth
 
 	return (
-		<Section title={slice.primary.title} backgroundColor='quaternary.main' textColor='primary-main'>
+		<Section
+			title={slice.primary.title}
+			intro={slice.primary.intro}
+			backgroundColor='quaternary.main'
+			textColor='primary-main'
+		>
 			<Stack direction='row' spacing={2} sx={{ overflowX: 'hidden' }} ref={scrollRef}>
 				{items
 					.sort((a, b) => (a.data?.order || 999999) - (b.data?.order || 999999))

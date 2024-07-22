@@ -1,5 +1,6 @@
 import { createClient } from '@/prismicio'
 import Carousel from './Carousel'
+import Grid from './Grid'
 
 /**
  * @typedef {import("@prismicio/client").Content.CarouselSlice} CarouselSlice
@@ -18,9 +19,9 @@ const ItemsList = async ({ slice }) => {
 		case 'carousel':
 			return <Carousel slice={slice} items={results} />
 		case 'grid':
-			return 'grid'
+			return <Grid slice={slice} items={results} />
 		default:
-			return <Carousel slice={slice} items={results} />
+			return 'oops'
 	}
 }
 

@@ -462,6 +462,16 @@ export interface CarouselSliceDefaultPrimary {
   title: prismic.KeyTextField;
 
   /**
+   * Intro field in *ItemsList → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.default.primary.intro
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  intro: prismic.RichTextField;
+
+  /**
    * Tag field in *ItemsList → Default → Primary*
    *
    * - **Field Type**: Select
@@ -521,6 +531,16 @@ export interface CarouselSliceCarouselPrimary {
   title: prismic.KeyTextField;
 
   /**
+   * Intro field in *ItemsList → Carousel → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.carousel.primary.intro
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  intro: prismic.RichTextField;
+
+  /**
    * Tag field in *ItemsList → Carousel → Primary*
    *
    * - **Field Type**: Select
@@ -578,6 +598,16 @@ export interface CarouselSliceGridPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+
+  /**
+   * Intro field in *ItemsList → Grid → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.grid.primary.intro
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  intro: prismic.RichTextField;
 
   /**
    * Tag field in *ItemsList → Grid → Primary*
