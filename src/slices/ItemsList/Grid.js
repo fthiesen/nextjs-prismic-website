@@ -10,8 +10,7 @@ import Section from '@/components/Section'
  */
 const Grid = async ({ slice, items }) => {
 	// console.log('slice', slice)
-
-	console.log('items', items)
+	// console.log('items', items)
 
 	return (
 		<Section title={slice.primary.title} intro={slice.primary.intro} backgroundColor='primary.main'>
