@@ -14,7 +14,7 @@ const Grid = async ({ slice, items }) => {
 
 	return (
 		<Section title={slice.primary.title} intro={slice.primary.intro} backgroundColor='primary.main'>
-			<MUI_Grid container spacing={3}>
+			<MUI_Grid container spacing={4}>
 				{items
 					.sort((a, b) => (a.data?.order || 999999) - (b.data?.order || 999999))
 					.map(item => {
@@ -31,7 +31,7 @@ const Grid = async ({ slice, items }) => {
 						)
 					})}
 			</MUI_Grid>
-			<Stack direction='row' sx={{ justifyContent: 'center', p: 4 }}>
+			<Stack direction='row' sx={{ justifyContent: 'center', pt: 6, pb: 4 }}>
 				<Button variant='contained' color='secondary' size='large'>
 					Learn More
 				</Button>

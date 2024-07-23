@@ -6,29 +6,29 @@ import { PrismicNextImage } from '@prismicio/next'
 import { PrismicText } from '@prismicio/react'
 
 const CardComponent2 = ({ title, imageField, content }) => {
-	const theme = useTheme()
 	return (
 		<Box
 			sx={{
-				p: 3,
+				p: 4,
 				display: 'flex',
 				gap: 2,
 				flexDirection: 'column',
 				alignItems: 'center',
 				height: '100%',
-				border: `solid 1px ${theme.palette.secondary.main}`,
-				borderRadius: 4,
+				borderRadius: 8,
 				color: 'secondary.main',
 				backgroundColor: 'white',
-				'&:hover': {
-					backgroundColor: 'rgba(255, 255, 255, 0.85)',
-				},
-				transition: 'background-color 0.5s ease-in-out',
+				transition: 'background-color 0.3s ease-in-out',
 				position: 'relative',
+				'&:hover': {
+					boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
+					// backgroundColor: 'rgba(255, 255, 255, 0.85)',
+					transform: 'scale(1.01)',
+				},
 				'&:hover img': {
 					transform: 'scale(1.05)',
 					opacity: 0.8,
-					transition: 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out',
+					transition: 'transform 0.5s ease-in-out, opacity 0.5s ease-in-out',
 				},
 			}}
 		>
@@ -38,9 +38,9 @@ const CardComponent2 = ({ title, imageField, content }) => {
 					top: 0,
 					left: 0,
 					right: 0,
-					height: 200,
-					borderTopLeftRadius: 15,
-					borderTopRightRadius: 15,
+					height: 220,
+					borderTopLeftRadius: 30,
+					borderTopRightRadius: 30,
 					overflow: 'hidden',
 					transition: 'all 0.3s ease-in-out',
 					'& img': {
@@ -74,14 +74,14 @@ const CardComponent2 = ({ title, imageField, content }) => {
 					}}
 				/>
 			</Box>
-			<div className='mt-80'>
+			<Box sx={{ mt: 27 }}>
 				<Typography variant='h4' sx={{ pt: 0.4, mb: 2 }}>
 					{title}
 				</Typography>
 				<Typography>
 					<PrismicText field={content} />
 				</Typography>
-			</div>
+			</Box>
 		</Box>
 	)
 }
