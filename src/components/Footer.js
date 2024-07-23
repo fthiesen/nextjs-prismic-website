@@ -14,7 +14,11 @@ export const Footer = ({ settings }) => {
 	}
 
 	return (
-		<Container maxWidth={false} sx={{ backgroundColor: 'primary.main', color: 'text.primary' }}>
+		<Container
+			component='footer'
+			maxWidth={false}
+			sx={{ backgroundColor: 'primary.main', color: 'text.primary' }}
+		>
 			<Container maxWidth='xl' sx={{ py: { xs: 4, sm: 6 } }}>
 				<Stack
 					direction='row'
