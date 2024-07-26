@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import * as prismic from '@prismicio/client'
 import { PrismicText } from '@prismicio/react'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
-
+import { usePathname } from 'next/navigation'
 import styled from '@emotion/styled'
 import {
 	AppBar,
@@ -78,6 +78,7 @@ const StyledVerticalMenuList = styled(MenuList)(({ theme }) => ({
 }))
 
 export const Header = ({ navigation, settings }) => {
+	const pathname = usePathname()
 	const [anchorEl, setAnchorEl] = useState(null)
 	const open = Boolean(anchorEl)
 
@@ -88,6 +89,10 @@ export const Header = ({ navigation, settings }) => {
 	const handleCloseMenu = () => {
 		setAnchorEl(null)
 	}
+
+	useEffect(() => {
+		handleCloseMenu()
+	}, [pathname])
 
 	return (
 		<AppBar position='static' sx={{ backgroundColor: 'transparent' }}>
@@ -119,7 +124,14 @@ export const Header = ({ navigation, settings }) => {
 							.map(item => {
 								return (
 									<MenuItem key={prismic.asText(item.label)}>
-										<PrismicNextLink field={item.link}>
+										<PrismicNextLink
+											field={item.link}
+											className={
+												pathname === item.link.url
+													? 'text-tertiary-main bg-transparent underline'
+													: ''
+											}
+										>
 											<PrismicText field={item.label} />
 										</PrismicNextLink>
 									</MenuItem>
@@ -170,7 +182,7 @@ export const Header = ({ navigation, settings }) => {
 							<StyledVerticalMenuList sx={{ mt: 5 }}>
 								{navigation.data?.links.map(item => {
 									return (
-										<MenuItem key={prismic.asText(item.label)} onClick={handleCloseMenu}>
+										<MenuItem key={prismic.asText(item.label)}>
 											<PrismicNextLink field={item.link}>
 												<PrismicText field={item.label} />
 											</PrismicNextLink>
