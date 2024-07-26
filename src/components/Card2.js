@@ -22,7 +22,6 @@ const CardComponent2 = ({ title, imageField, content }) => {
 				position: 'relative',
 				'&:hover': {
 					boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.1)',
-					// backgroundColor: 'rgba(255, 255, 255, 0.85)',
 					transform: 'scale(1.01)',
 				},
 				'&:hover img': {
@@ -38,7 +37,7 @@ const CardComponent2 = ({ title, imageField, content }) => {
 					top: 0,
 					left: 0,
 					right: 0,
-					height: 220,
+					height: 240,
 					borderTopLeftRadius: 30,
 					borderTopRightRadius: 30,
 					overflow: 'hidden',
@@ -74,7 +73,7 @@ const CardComponent2 = ({ title, imageField, content }) => {
 					}}
 				/>
 			</Box>
-			<Box sx={{ mt: 27 }}>
+			<Box sx={{ mt: 30 }}>
 				<Typography variant='h4' sx={{ pt: 0.4, mb: 2 }}>
 					{title}
 				</Typography>

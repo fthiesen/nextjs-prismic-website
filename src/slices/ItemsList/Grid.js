@@ -13,7 +13,11 @@ const Grid = async ({ slice, items }) => {
 	// console.log('items', items)
 
 	return (
-		<Section title={slice.primary.title} intro={slice.primary.intro} backgroundColor='primary.main'>
+		<Section
+			title={slice.primary.title}
+			intro={slice.primary.intro}
+			backgroundColor='primary.light'
+		>
 			<MUI_Grid container spacing={4}>
 				{items
 					.sort((a, b) => (a.data?.order || 999999) - (b.data?.order || 999999))

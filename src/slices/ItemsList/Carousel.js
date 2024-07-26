@@ -13,7 +13,7 @@ const Carousel = ({ slice, items }) => {
 	const [scrollPosition, setScrollPosition] = useState(0)
 	const [iconButtonTop, setIconButtonTop] = useState(0)
 
-	const GAP = 16
+	const GAP = 24
 	const isLgUp = useMediaQuery(theme.breakpoints.up('lg'))
 	const isMdUp = useMediaQuery(theme.breakpoints.up('md'))
 	const isSmUp = useMediaQuery(theme.breakpoints.up('sm'))
@@ -81,7 +81,7 @@ const Carousel = ({ slice, items }) => {
 			backgroundColor='quaternary.main'
 			textColor='primary-main'
 		>
-			<Stack direction='row' spacing={2} sx={{ overflowX: 'hidden' }} ref={scrollRef}>
+			<Stack direction='row' spacing={GAP / 8} sx={{ overflowX: 'hidden' }} ref={scrollRef}>
 				{items
 					.sort((a, b) => (a.data?.order || 999999) - (b.data?.order || 999999))
 					.map(item => {
