@@ -123,7 +123,7 @@ const Carousel = ({ slice, items }) => {
 			>
 				<Icon>chevron_right</Icon>
 			</StyledIconButton>
-			<Stack direction='row' sx={{ justifyContent: 'center', p: 4, pb: 2 }}>
+			<Stack direction='row' sx={{ justifyContent: 'center', p: 4, pb: 0 }}>
 				<PrismicNextLink href={slice.primary.button_link.url}>
 					<Button variant='contained' color='primary' size='large'>
 						{slice.primary.button_text || 'Learn More'}

@@ -1371,6 +1371,16 @@ export type TextSlice = prismic.SharedSlice<"text", TextSliceVariation>;
  */
 export interface TextWithImageSliceDefaultPrimary {
   /**
+   * Title field in *TextWithImage → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
    * Text field in *TextWithImage → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -1409,6 +1419,16 @@ export type TextWithImageSliceDefault = prismic.SharedSliceVariation<
  */
 export interface TextWithImageSliceWithButtonPrimary {
   /**
+   * Title field in *TextWithImage → With Button → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.withButton.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
    * Text field in *TextWithImage → With Button → Primary*
    *
    * - **Field Type**: Rich Text
@@ -1419,24 +1439,44 @@ export interface TextWithImageSliceWithButtonPrimary {
   text: prismic.RichTextField;
 
   /**
-   * Button Link field in *TextWithImage → With Button → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.withButton.primary.buttonLink
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  buttonLink: prismic.LinkField;
-
-  /**
    * Button Text field in *TextWithImage → With Button → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.withButton.primary.buttonText
+   * - **API ID Path**: text_with_image.withButton.primary.button_text
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  buttonText: prismic.KeyTextField;
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *TextWithImage → With Button → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.withButton.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Text 2 field in *TextWithImage → With Button → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.withButton.primary.button_text_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text_2: prismic.KeyTextField;
+
+  /**
+   * Button Link 2 field in *TextWithImage → With Button → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.withButton.primary.button_link_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link_2: prismic.LinkField;
 
   /**
    * Image field in *TextWithImage → With Button → Primary*
@@ -1447,6 +1487,17 @@ export interface TextWithImageSliceWithButtonPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * Image Placement field in *TextWithImage → With Button → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Left
+   * - **API ID Path**: text_with_image.withButton.primary.image_placement
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  image_placement: prismic.SelectField<"Left" | "Right", "filled">;
 }
 
 /**

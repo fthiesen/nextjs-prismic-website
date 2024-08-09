@@ -9,7 +9,7 @@ const Section = ({ children, title, intro, backgroundColor, textColor }) => {
 			maxWidth={false}
 			sx={{ width: '100%', backgroundColor: backgroundColor || 'white' }}
 		>
-			<Container component='div' maxWidth='lg' sx={{ py: 10 }}>
+			<Container component='div' maxWidth='lg' sx={{ pt: 10, pb: 12 }}>
 				{title && (
 					<Typography variant='h3' className={`text-center pb-12 text-${textColor}`}>
 						{title}

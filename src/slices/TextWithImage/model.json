@@ -11,6 +11,13 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "TextWithImage",
       "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
         "text": {
           "type": "StructuredText",
           "config": {
@@ -42,6 +49,13 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "TextWithImage",
       "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
         "text": {
           "type": "StructuredText",
           "config": {
@@ -51,7 +65,14 @@
             "multi": "paragraph,heading1,heading2,heading3,strong,em,hyperlink,o-list-item,list-item"
           }
         },
-        "buttonLink": {
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        },
+        "button_link": {
           "type": "Link",
           "config": {
             "label": "Button Link",
@@ -59,11 +80,19 @@
             "select": null
           }
         },
-        "buttonText": {
+        "button_text_2": {
           "type": "Text",
           "config": {
-            "label": "Button Text",
+            "label": "Button Text 2",
             "placeholder": ""
+          }
+        },
+        "button_link_2": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link 2",
+            "placeholder": "",
+            "select": null
           }
         },
         "image": {
@@ -72,6 +101,18 @@
             "label": "Image",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "image_placement": {
+          "type": "Select",
+          "config": {
+            "label": "Image Placement",
+            "placeholder": "",
+            "options": [
+              "Left",
+              "Right"
+            ],
+            "default_value": "Left"
           }
         }
       },
