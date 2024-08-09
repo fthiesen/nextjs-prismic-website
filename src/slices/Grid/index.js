@@ -9,13 +9,9 @@ import { Button, Grid as MUI_Grid, Stack } from '@mui/material'
  * @param {GridProps}
  */
 const Grid = async ({ slice }) => {
-	console.log('slice', slice)
-
 	const client = createClient()
 	const contentType = slice.primary.content.type
 	const items = await client.getAllByType(contentType)
-
-	// console.log('items', items)
 
 	return (
 		<Section title={slice.primary.title}>

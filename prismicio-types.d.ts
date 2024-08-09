@@ -176,6 +176,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | NewsletterSlice
   | CarouselSlice
   | HeroSlice
   | QuoteSlice
@@ -1019,6 +1020,71 @@ export type ImageCardsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Newsletter → Mailchimp → Primary*
+ */
+export interface NewsletterSliceMailchimpPrimary {
+  /**
+   * Title field in *Newsletter → Mailchimp → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.mailchimp.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Intro field in *Newsletter → Mailchimp → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.mailchimp.primary.intro
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  intro: prismic.RichTextField;
+
+  /**
+   * API Key field in *Newsletter → Mailchimp → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: newsletter.mailchimp.primary.api_key
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  api_key: prismic.KeyTextField;
+}
+
+/**
+ * Mailchimp variation for Newsletter Slice
+ *
+ * - **API ID**: `mailchimp`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewsletterSliceMailchimp = prismic.SharedSliceVariation<
+  "mailchimp",
+  Simplify<NewsletterSliceMailchimpPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Newsletter*
+ */
+type NewsletterSliceVariation = NewsletterSliceMailchimp;
+
+/**
+ * Newsletter Shared Slice
+ *
+ * - **API ID**: `newsletter`
+ * - **Description**: Newsletter
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NewsletterSlice = prismic.SharedSlice<
+  "newsletter",
+  NewsletterSliceVariation
+>;
+
+/**
  * Primary content in *Quote → Color Scheme 1 → Primary*
  */
 export interface QuoteSlicePrimaryPrimary {
@@ -1464,6 +1530,10 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefaultPrimary,
       ImageCardsSliceVariation,
       ImageCardsSliceDefault,
+      NewsletterSlice,
+      NewsletterSliceMailchimpPrimary,
+      NewsletterSliceVariation,
+      NewsletterSliceMailchimp,
       QuoteSlice,
       QuoteSlicePrimaryPrimary,
       QuoteSliceSecondaryPrimary,

@@ -35,7 +35,7 @@ const Grid = async ({ slice, items }) => {
 						)
 					})}
 			</MUI_Grid>
-			<Stack direction='row' sx={{ justifyContent: 'center', pt: 6, pb: 4 }}>
+			<Stack direction='row' sx={{ justifyContent: 'center', pt: 6, pb: 2 }}>
 				<Button variant='contained' color='secondary' size='large'>
 					Learn More
 				</Button>

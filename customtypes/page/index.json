@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "newsletter": {
+              "type": "SharedSlice"
+            },
             "carousel": {
               "type": "SharedSlice"
             },

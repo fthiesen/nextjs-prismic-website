@@ -1,0 +1,35 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "mailchimp",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "toward",
+				"type": "Text"
+			},
+			"intro": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Culpa officia ex qui. Nostrud duis laboris sit adipisicing non proident velit minim consectetur voluptate qui consequat."
+						}
+					}
+				]
+			},
+			"api_key": {
+				"__TYPE__": "FieldContent",
+				"value": "describe",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]
