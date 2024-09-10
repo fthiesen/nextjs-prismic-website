@@ -1044,14 +1044,14 @@ export interface NewsletterSliceMailchimpPrimary {
   intro: prismic.RichTextField;
 
   /**
-   * API Key field in *Newsletter → Mailchimp → Primary*
+   * Form Url field in *Newsletter → Mailchimp → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: newsletter.mailchimp.primary.api_key
+   * - **API ID Path**: newsletter.mailchimp.primary.form_url
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  api_key: prismic.KeyTextField;
+  form_url: prismic.KeyTextField;
 }
 
 /**
